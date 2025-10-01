@@ -1,0 +1,21 @@
+import axios from "axios";
+import {
+    VITE_SEOUL_SEARCH_BASE_URL,
+    VITE_SEOUL_SEARCH_KEY,
+    VITE_SEOUL_SEARCH_TYPE,
+    VITE_SEOUL_SEARCH_SERVICE,
+    VITE_SEOUL_SEARCH_START_INDEX,
+    VITE_SEOUL_SEARCH_END_INDEX,
+} from "../utils/env";
+
+export const searchApi = axios.create({
+    baseURL : VITE_SEOUL_SEARCH_BASE_URL,
+});
+
+export function basePath(){
+    return `/${VITE_SEOUL_SEARCH_KEY}/${VITE_SEOUL_SEARCH_TYPE}/${VITE_SEOUL_SEARCH_SERVICE}/${VITE_SEOUL_SEARCH_START_INDEX}/${VITE_SEOUL_SEARCH_END_INDEX}`
+}
+
+export function searchPath(station){
+    return `/${VITE_SEOUL_SEARCH_KEY}/${VITE_SEOUL_SEARCH_TYPE}/${VITE_SEOUL_SEARCH_SERVICE}/${VITE_SEOUL_SEARCH_START_INDEX}/${VITE_SEOUL_SEARCH_END_INDEX}/${station}`
+}
