@@ -1,9 +1,23 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Header from './Header.jsx';
 import './SubwayDetail1.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { setSubwayInfo } from '../store/slices/subwayIdSlice.js';
 
 function SubwayDetail1(){
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const stationCodeParams = useParams();
+    const stationInfo = useSelector(state => state.subwayid.subwayInfo);
+    const stationList = useSelector(state => state.subwaystation.list);
+
+    useEffect(()=>{
+      const item = stationList.find((item) => stationCodeParams.subwayStationId === item.STATION_CD);
+      dispatch(setSubwayInfo(item));
+    },[]);
+
+
     return(
         <>  
         <Header/>
@@ -40,7 +54,7 @@ function SubwayDetail1(){
         </div>
         <div className='subwaydetail-titlebox'>
             <div className='subwaydetail-colorname'></div>
-                <h1>을지로4가</h1>
+                <h1>{stationInfo.STATION_NM}</h1>
             <div className='subwaydetail-colorname'></div>
             
         </div>

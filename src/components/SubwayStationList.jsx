@@ -10,6 +10,7 @@ function SubwayStationList() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const subwaystation = useSelector(state => state.subwaystation.list);
+ 
 
   useEffect(() => {
     dispatch(subwaystationIndex());
@@ -24,7 +25,7 @@ function SubwayStationList() {
       </div>
       {subwaystation && subwaystation.map(item => {
         return (
-          <div className='subwaystationlist-item' onClick={() => { navigate('/subwaydetail1') }}>
+          <div className='subwaystationlist-item' onClick={() => { navigate(`/subwaydetail1/${item.STATION_CD}`) }}>
             <div className='subwaystationlist-listCircle'>
               <img src="/mainnavsubway.png" alt="지하철사진" />
 
