@@ -38,7 +38,11 @@
     justify-content: left;
     align-items: center;
     padding-left: 20%;
+    cursor: pointer;
 
+}
+.subwaystationlist-item:hover{
+    transform: translateY(-10px);
 }
 .subwaystationlist-listCircle{
     width: 32px;

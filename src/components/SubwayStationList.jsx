@@ -1,5 +1,4 @@
 import './SubwayStationList.css';
-import Header from './Header.jsx';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
@@ -18,14 +17,13 @@ function SubwayStationList() {
 
   return (
     <>
-      <Header />
       <div className='subwaystationlist-title'><h1>지하철역 리스트</h1></div>
       <div className='subwaystationlist-searchbar'>
         <input type='text'></input>
       </div>
       {subwaystation && subwaystation.map(item => {
         return (
-          <div className='subwaystationlist-item' onClick={() => { navigate(`/subwaydetail1/${item.STATION_CD}`) }}>
+          <div className='subwaystationlist-item' onClick={() => { navigate(`/subwaydetail/${item.STATION_CD}`) }}>
             <div className='subwaystationlist-listCircle'>
               <img src="/mainnavsubway.png" alt="지하철사진" />
 
